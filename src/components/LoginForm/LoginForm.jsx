@@ -2,6 +2,8 @@ import { Button, Input } from "antd";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context";
 import './LoginForm.css'
+import { LanguageContext } from "../../context";
+import { translations } from "../translations";
 export default function LoginForm() {
   const {setIsAuth} = useContext(AuthContext);
 
@@ -9,12 +11,15 @@ export default function LoginForm() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  const {language} = useContext(LanguageContext);
+  const t = translations[language];
+
   const handleLogin = () => {
     // TODO: do it smarter if you have more time :)
     if (login === 'admin' && password === 'admin') {
       setIsAuth(true);
     } else {
-      setError('Invalid username or password');
+      setError(t.errorLabel);
     }
   }
 
@@ -22,10 +27,10 @@ export default function LoginForm() {
     <form className="form_styles">
       <div>
       {error && <span className="error">{error}</span>}
-      <Input placeholder="Enter your login" className="first_input" value={login} onChange={(event) => setLogin(event.target.value)} />
-      <Input placeholder="Enter your password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+      <Input placeholder={t.loginLabel} className="first_input" value={login} onChange={(event) => setLogin(event.target.value)} />
+      <Input placeholder={t.passwordLabel} type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
       </div>
-      <Button onClick={handleLogin} className="sign_button">Sign in</Button>
+      <Button onClick={handleLogin} className="sign_button">{t.signInLabel}</Button>
     </form>
   )
 }

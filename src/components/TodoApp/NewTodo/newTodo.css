@@ -13,4 +13,11 @@
     color:darkred;
     font-style: italic;
     margin-left: 720px;
+    margin-top: 20px;
+}
+.form_select {
+    font-size: 26px !important;
+}
+.ant-select-selection-item {
+    font-size: 26px !important;
 }
