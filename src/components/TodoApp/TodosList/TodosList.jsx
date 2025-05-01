@@ -23,8 +23,8 @@ export default function TodosList() {
         <li key={index}>
           <div className="parent_container">
           <div className="info_container">
-          <p>{t.todoLabel}: {todo.text}</p>
-          <p>{t.priorityLabel}: {todo.priority}</p>
+          <p className="todo_label">{t.todoLabel}: {todo.text}</p>
+          <p className="priority_label">{t.priorityLabel}: {todo.priority}</p>
           </div>
           <div className="buttons_container">
           <Button className="control_button"onClick={() => setEditingTodo(todo)}>{t.editButton}</Button> 

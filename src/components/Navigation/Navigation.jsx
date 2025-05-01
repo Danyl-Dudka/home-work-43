@@ -23,7 +23,7 @@ export default function Navigation() {
   
   
   const handleThemeChange = (checked) => {
-    setTheme(checked ? THEMES.LIGHT : THEMES.DARK);
+    setTheme(checked ? THEMES.DARK : THEMES.LIGHT);
   };
 
   const handleLanguageChange = (value) => {
@@ -31,7 +31,8 @@ export default function Navigation() {
   };
 
   useEffect(() => {
-    setClassName(`${defaultClassName} ${defaultClassName}-${theme}`);
+    document.body.classList.remove(THEMES.DARK, THEMES.LIGHT);
+    document.body.classList.add(theme)
   }, [theme]);
 
   return (
@@ -39,7 +40,7 @@ export default function Navigation() {
       <div className="much-weight">
         <Select
           value={language}
-          style={{ width: 120 }}
+          className="select_language"
           onChange={handleLanguageChange}
           options={[
             { value: LANGUAGES.EN.value, label: LANGUAGES.EN.text },
@@ -50,10 +51,12 @@ export default function Navigation() {
 
       <div className="much-weight">
         <Switch
-          checkedChildren={THEMES.LIGHT}
-          unCheckedChildren={THEMES.DARK}
+          checkedChildren={THEMES.DARK}
+          className="select_theme"
+          style={{fontSize: 24}}
+          unCheckedChildren={THEMES.LIGHT}
           onChange={handleThemeChange}
-          checked={theme === THEMES.LIGHT}
+          checked={theme === THEMES.DARK}
         />
       </div>
     </div>

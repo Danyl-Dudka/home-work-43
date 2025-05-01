@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ThemeContext, THEMES } from "../../context";
 
 export default function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(THEMES.LIGHT);
+  const [theme, setTheme] = useState(THEMES.DARK);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');

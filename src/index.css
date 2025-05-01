@@ -5,7 +5,6 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(209,124,124,1) 35%, rgba(0,212,255,1) 100%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,13 +21,7 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+
 
 h1 {
   font-size: 3.2em;
